@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "npm": "^9.2.0"
+  },
+  "devDependencies": {
+    "cypress": "^12.3.0"
+  },
+  "name": "saucedemo",
+  "version": "1.0.0",
+  "main": "cypress.config.js",
+  "scripts": {
+    "cy:open": "npx cypress open"
+  },
+  "keywords": [],
+  "author": "Taso",
+  "license": "ISC",
+  "description": "Testing tests"
+}

@@ -1,18 +1,18 @@
+import AuthPage from "../pages/auth.page";
+import ProductPage from "../pages/product.page";
+
 describe('Authentication', () => {
+  beforeEach(() => {
+    AuthPage.open()
+  })
   it('login with valid credentials', () => {
-    beforeEach(() => {
-      cy.visit('/')
 
-    })
+    AuthPage.inputUsername.type(Cypress.env('username'))
+    AuthPage.inputPassword.type(Cypress.env('password'))
+    AuthPage.buttonLogin.click()
 
-
-
-    cy.get('[data-test="username"]').type(Cypress.env('username'))
-    cy.get('[data-test="password"]').type(Cypress.env('password'))
-    cy.get('[data-test="login-button"]').click()
-
-    cy.location('pathname').should('eq', '/inventory.html')
-    cy.get('#shopping_cart_container').should('be.visible')
+    ProductPage.path.should('eq', '/inventory.html')
+    ProductPage.linkCart.should('be.visible')
 
   })
 })
